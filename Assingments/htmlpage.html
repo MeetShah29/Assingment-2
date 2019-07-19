@@ -1,0 +1,44 @@
+<!Doctype html>
+<html>
+
+<script>
+var A = [];
+var size = 5; //Maximum Array size
+
+var count=0;
+var element=0;
+for(var i=0; i<size; i++)
+{
+	//Taking Input from user
+	A[i] = prompt('Enter Element ' + (i+1));
+}
+
+
+//Print the array in the console.
+document.write(A,"<br/>");
+document.write("Maximum Value: "+ Math.max(...A),"<br/>");
+document.write("Minimum Value: "+ Math.min(...A),"<br/>");
+
+
+//To find maximum repeated number
+
+for(var j=0;j<=A.length;j++)
+{
+	var tempelement=A[j];
+	var tempcount=0;
+		for(var k=0;k<=A.length;k++)
+		{
+			if(A[k]==tempelement)
+			tempcount++;
+			if(tempcount>count)
+			{
+				element=tempelement;
+				count=tempcount;
+			}
+			
+		}
+}
+document.write("Most Repeated Number is "+element);
+
+</script>
+</html>
