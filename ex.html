@@ -1,0 +1,109 @@
+<!Doctype html>
+<html>
+
+<head>
+    <input type="text" id="txt">
+
+    <input type="button" value="submit" onclick="fun()"></button>
+    <br><br>
+    <input type="radio" name="r1" value="Airport">Airport&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+    <input type="radio" name="r1" value="Country">Country<br><br>
+    <textarea name="" id="txt2" cols="100" rows="10"></textarea>
+
+    <script>
+        var obj, t1,me=[], temp = [];
+        var give, val = [];
+        fetch('https://api.goomo.team/int/master/v2.0/flights/airports')
+            .then(response => response.json())
+            .then(data => {
+                obj = JSON.stringify(data);
+                give = data.airports;
+                console.log("give>>>>>>", give)
+
+                var i;
+                for (i = 0; i < give.length; i++) {
+                    temp.push(give[i].cn);
+                    me.push(give[i].an);
+                }
+                // console.log(temp);
+
+
+
+            });
+
+
+        function fun() {
+            // t1 = document.getElementById("txt").value;
+            //     document.getElementById("txt2").innerHTML = "";
+            var radio = document.getElementsByName("r1");
+
+            if (radio[0].checked == true) {
+                air();
+            }
+            else {
+                cnt();
+            }
+        
+
+
+            for (j = 0; j <= temp.length; j++) {
+                if (temp[j] == t1) {
+                    document.getElementById("txt2").innerHTML = "Airport Name:" + me[j]    + "   Country Name:" + temp[j];
+
+                }
+
+            }
+
+        }
+
+
+            function air() {
+
+
+                // console.log("hello", give[0].an);
+
+                t1 = document.getElementById("txt").value;
+                document.getElementById("txt2").innerHTML = "";
+
+
+                for (j = 0; j <= temp.length; j++) {
+                    // console.log("giveLenght", give.length);
+                    if (me[j] == t1) {
+                        
+                        document.getElementById("txt2").innerHTML = "Airport Name:" + me[j]   ;
+
+
+                    }
+                }
+
+
+
+            }
+
+            function cnt() {
+                t1 = document.getElementById("txt").value;
+                document.getElementById("txt2").innerHTML = "";
+
+
+                for (j = 0; j <= temp.length; j++) {
+                    if (temp[j] == t1) {
+                        document.getElementById("txt2").innerHTML = "Country Name:" + temp[j];
+                        // document.getElementsByClassName("Country").innerHTML = cnt();
+                    }
+                }
+            }
+
+
+            // document.getElementsByClassName("Airports").innerHTML=air();
+
+
+
+
+
+
+
+        
+    </script>
+</head>
+
+</html>
