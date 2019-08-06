@@ -1,0 +1,32 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box
+}
+
+#board{
+  display: flex;
+width:300px;
+flex-wrap:wrap
+}
+
+.square{
+  height: 100px;
+  width: 100px;
+  border:1px solid black;
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+.square:hover{
+  background:#eee;
+}
+#game{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
